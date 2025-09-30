@@ -2,6 +2,8 @@ package com.example.mynit32132b3
 
 import android.os.Bundle
 import android.util.Log
+import android.widget.Button
+import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -14,5 +16,14 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         Log.d("MyApplication", "hello from main activity")
+
+        var mytextview=findViewById<TextView>(R.id.textViewmain)
+        var mybutton=findViewById<Button>(R.id.buttonMain)
+
+        mybutton.setOnClickListener {
+
+            mytextview.text= "Button Clicked"
+        }
+
     }
 }
