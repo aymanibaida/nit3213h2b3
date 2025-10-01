@@ -17,8 +17,24 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+
+    <Button
+        style="?attr/materialButtonTonalStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/aymantextcolor"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="216dp"
+        android:layout_marginEnd="24dp"
+        android:checkable="true"
+        android:text="Material botton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <Button
         android:id="@+id/buttonMain"
+        android:textColor="@color/aymantextcolor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="195dp"
