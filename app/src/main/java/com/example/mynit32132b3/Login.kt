@@ -16,6 +16,8 @@ class Login : AppCompatActivity() {
         var myintent=intent
 
         var localstudentid=myintent.getStringExtra("studentid")
-        Log.d("MyApplication","the local student id is $localstudentid")
+
+        var myproduct=myintent.getParcelableExtra<Product>("passedproduct")
+        Log.d("MyApplication","the local student id is $localstudentid and the product name is ${myproduct?.name}")
     }
 }

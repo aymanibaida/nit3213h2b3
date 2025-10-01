@@ -31,6 +31,8 @@ class MainActivity : AppCompatActivity() {
             myintent.putExtra("studentname","jason")
             myintent.putExtra("studentmark",65)
 
+            var myproduct=Product("laptop",1000.00)
+            myintent.putExtra("passedproduct",myproduct)
             startActivity(myintent)
 
         }
