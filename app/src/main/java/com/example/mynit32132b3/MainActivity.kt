@@ -1,5 +1,7 @@
 package com.example.mynit32132b3
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
@@ -23,7 +25,18 @@ class MainActivity : AppCompatActivity() {
         mybutton.setOnClickListener {
 
             mytextview.text= "Button Clicked"
+            val myintent = Intent(this, Login::class.java)
+
+            myintent.putExtra("studentid","s123456")
+            myintent.putExtra("studentname","jason")
+            myintent.putExtra("studentmark",65)
+
+            startActivity(myintent)
+
         }
 
     }
+
+
+
 }
