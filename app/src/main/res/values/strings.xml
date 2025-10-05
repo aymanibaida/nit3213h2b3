@@ -1,4 +1,6 @@
 <resources>
     <string name="app_name">mynit32132b3</string>
     <string name="mainactivitytextview"> Hello from resources</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
