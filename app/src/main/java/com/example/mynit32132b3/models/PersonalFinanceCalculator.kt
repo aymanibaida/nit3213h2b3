@@ -1,4 +1,4 @@
-package com.example.mynit32132b3
+package com.example.mynit32132b3.models
 
 class PersonalFinanceCalculator(
     var income: Double,
