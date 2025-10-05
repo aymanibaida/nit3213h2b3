@@ -19,12 +19,6 @@ class MainActivity : AppCompatActivity() {
         Log.d("MyApplication", "hello from main activity")
         viewmodel.loadData()
 
-        findViewById<TextView>(R.id.textView2).text=viewmodel.greetingtext
-
-        supportFragmentManager.beginTransaction()
-            .setReorderingAllowed(true)
-            .add(R.id.fragmentContainerView2,LoginFragment::class.java,null,"LoginFragment")
-            .commit()
     }
 
 
