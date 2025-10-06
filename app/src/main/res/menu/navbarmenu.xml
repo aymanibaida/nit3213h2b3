@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/LoginItemMenu"
+        android:icon="@drawable/login_icon"
+        android:title="Login" />
+    <item
+        android:id="@+id/DashboardItemMenu"
+        android:icon="@drawable/dashboard_icon"
+        android:title="Dashboard" />
+    <item
+        android:id="@+id/DetailsItemMenu"
+        android:icon="@drawable/details_icon"
+        android:title="Details" />
+</menu>
