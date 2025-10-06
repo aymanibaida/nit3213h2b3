@@ -22,6 +22,9 @@
         <action
             android:id="@+id/action_dashboardFragment_to_detailsFragment"
             app:destination="@id/detailsFragment" />
+        <argument
+            android:name="passedproduct"
+            app:argType="com.example.mynit32132b3.models.Product" />
     </fragment>
     <fragment
         android:id="@+id/detailsFragment"

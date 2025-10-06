@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import androidx.navigation.fragment.findNavController
 import com.example.mynit32132b3.R
+import com.example.mynit32132b3.models.Product
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -35,7 +36,9 @@ class LoginFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         view.findViewById<Button>(R.id.button).setOnClickListener {
-            findNavController().navigate(R.id.action_loginFragment_to_dashboardFragment)
+
+            val action=LoginFragmentDirections.actionLoginFragmentToDashboardFragment(Product("Laptop",1200.0))
+            findNavController().navigate(action)
 
 
         }
