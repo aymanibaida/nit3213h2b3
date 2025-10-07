@@ -51,6 +51,9 @@ dependencies {
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
 
+    //viewmodel dependancies
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.0")
+
     //testing dependancies
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
