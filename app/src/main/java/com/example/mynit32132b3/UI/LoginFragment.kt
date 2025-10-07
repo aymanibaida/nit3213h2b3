@@ -1,14 +1,25 @@
 package com.example.mynit32132b3.UI
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.TextView
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.example.mynit32132b3.R
 import com.example.mynit32132b3.models.Product
+import com.example.mynit32132b3.viewModels.LoginFragmentViewModel
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.async
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -24,6 +35,8 @@ class LoginFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
+    private val viewmodel: LoginFragmentViewModel by viewModels()
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,13 +48,31 @@ class LoginFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        view.findViewById<Button>(R.id.button).setOnClickListener {
 
+        //setting click event
+        view.findViewById<Button>(R.id.button).setOnClickListener {
             val action=LoginFragmentDirections.actionLoginFragmentToDashboardFragment(Product("Laptop",1200.0))
             findNavController().navigate(action)
 
+        }
+
+       //coroutine
+
+        lifecycleScope.launch(Dispatchers.IO){
+            val mytextview=view.findViewById<TextView>(R.id.textViewlogin)
+            viewmodel.text.collect { newvalue->
+                withContext(Dispatchers.Main) {
+                    Log.d("LoginFragment", "current thread is ${Thread.currentThread().name}")
+                    mytextview.text = newvalue
+                }
+
+            }
+
 
         }
+
+
+
     }
 
     override fun onCreateView(

@@ -11,6 +11,10 @@ import androidx.navigation.ui.setupWithNavController
 import com.example.mynit32132b3.R
 import com.example.mynit32132b3.viewModels.MainActivityViewModel
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
 
 class MainActivity : AppCompatActivity() {
     private lateinit var bottomNavBar: BottomNavigationView
@@ -33,6 +37,18 @@ class MainActivity : AppCompatActivity() {
         bottomNavBar.setOnApplyWindowInsetsListener(null)
         bottomNavBar.setupWithNavController(navController)
         setupnavigation()
+
+
+        GlobalScope.launch {
+
+
+            threads()
+            Log.d("MainActivity", "hello from main activity")
+        }
+
+
+
+
     }
 
     fun setupnavigation(){
@@ -51,5 +67,20 @@ class MainActivity : AppCompatActivity() {
             }
 
             }
+
+    suspend fun threads(){
+
+        Log.d("MainActivity", "hello from main activity inside the function")
+        delay(50000)
+
+            delay(3000)
+            Log.d("MainActivity", "hello from coroutine")
+
+            delay(3000)
+            Log.d("MainActivity", "hello from coroutine2")
+
+
+    }
+
 
         }
