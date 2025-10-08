@@ -7,7 +7,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.navigation.fragment.navArgs
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.mynit32132b3.R
+import com.example.mynit32132b3.UI.recycleview.myrecycleviewadapter
 import com.example.mynit32132b3.models.Product
 
 // TODO: Rename parameter arguments, choose names that match
@@ -40,6 +43,13 @@ class DashboardFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         view.findViewById<TextView>(R.id.textView2).text="The passed product name is ${product.name} and the passed product price is ${product.price}"
+
+       val recycleview=view.findViewById<RecyclerView>(R.id.myrecycleView)
+
+        val mydataset=listOf("Australia","USA","France")
+        val adapter=myrecycleviewadapter(mydataset)
+        recycleview.adapter= adapter
+
 
     }
     override fun onCreateView(
