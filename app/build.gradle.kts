@@ -60,6 +60,9 @@ dependencies {
     implementation("com.squareup.moshi:moshi-kotlin:1.14.0")
     implementation("com.squareup.okhttp3:logging-interceptor:4.10.0")
 
+    //recycleview dep
+    implementation(libs.androidx.recyclerview)
+
 
     //testing dependancies
     testImplementation(libs.junit)

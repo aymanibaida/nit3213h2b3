@@ -63,7 +63,7 @@ class LoginFragment : Fragment() {
             viewmodel.text.collect { newvalue->
                 withContext(Dispatchers.Main) {
                     Log.d("LoginFragment", "current thread is ${Thread.currentThread().name}")
-                    mytextview.text = newvalue
+                 //   mytextview.text = newvalue
                 }
 
             }
