@@ -2,6 +2,7 @@ package com.example.mynit32132b3.viewModels
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.mynit32132b3.networking.retrofitclient
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -18,9 +19,11 @@ class LoginFragmentViewModel: ViewModel() {
 
     private fun LoadData(){
         viewModelScope.launch {
+
+
             //simulate delay from netword call
             delay(10000)
-            _text.value="updated text"
+            _text.value=retrofitclient.impapiservice.getAllObjects().toString()
         }
 
 
