@@ -1,17 +1,24 @@
 package com.example.mynit32132b3.UI
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mynit32132b3.R
 import com.example.mynit32132b3.UI.recycleview.myrecycleviewadapter
 import com.example.mynit32132b3.models.Product
+import com.example.mynit32132b3.viewModels.DashboardFragmentViewModel
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -30,6 +37,9 @@ class DashboardFragment : Fragment() {
 
     private val args: DashboardFragmentArgs by navArgs()
     private lateinit var product: Product
+    private val viewmodel: DashboardFragmentViewModel by viewModels()
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,12 +54,35 @@ class DashboardFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         view.findViewById<TextView>(R.id.textView2).text="The passed product name is ${product.name} and the passed product price is ${product.price}"
 
-       val recycleview=view.findViewById<RecyclerView>(R.id.myrecycleView)
+        val dataset=mutableListOf<String>()
 
-        val mydataset=listOf("Australia","USA","France")
-        val adapter=myrecycleviewadapter(mydataset)
-        recycleview.adapter= adapter
+        val recycleview=view.findViewById<RecyclerView>(R.id.myrecycleView)
+        val adapter=myrecycleviewadapter(dataset)
 
+
+
+        lifecycleScope.launch(Dispatchers.IO) {
+
+            viewmodel.text.collect { newvalue ->
+                withContext(Dispatchers.Main) {
+                    Log.d("DashboardFragment", " newvale is $newvalue")
+                    Log.d("DashboardFragment", "current thread is ${Thread.currentThread().name}")
+
+                    newvalue.forEach { it ->
+
+                        dataset.add(it.toString())
+
+                    }
+                    Log.d("DashboardFragment", "dataset is $dataset")
+                    adapter.setDataset(dataset)
+                    recycleview.adapter = adapter
+
+                    //   mytextview.text = newvalue
+                }
+
+            }
+
+        }
 
     }
     override fun onCreateView(
