@@ -10,7 +10,11 @@ class MyViewHolder(view: View): RecyclerView.ViewHolder(view) {
     val textView=view.findViewById<TextView>(R.id.VHtextView)
     val button=view.findViewById<Button>(R.id.VHbutton)
 
-fun bind(text:String){
+fun bind(text:String,mybuttomclidck:()->Unit){
     textView.text=text
+    button.setOnClickListener {
+        mybuttomclidck()
+
+    }
 }
 }

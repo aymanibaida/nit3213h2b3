@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -54,10 +55,18 @@ class DashboardFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         view.findViewById<TextView>(R.id.textView2).text="The passed product name is ${product.name} and the passed product price is ${product.price}"
 
+
+        val mybuttomclidck={
+            findNavController().navigate(R.id.action_dashboardFragment_to_detailsFragment)
+        }
+
+
+
+
         val dataset=mutableListOf<String>()
 
         val recycleview=view.findViewById<RecyclerView>(R.id.myrecycleView)
-        val adapter=myrecycleviewadapter(dataset)
+        val adapter=myrecycleviewadapter(dataset,mybuttomclidck)
 
 
 

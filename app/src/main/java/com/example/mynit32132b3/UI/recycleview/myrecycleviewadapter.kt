@@ -8,7 +8,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mynit32132b3.R
 
-class myrecycleviewadapter(private var dataSet: List<String>) :
+class myrecycleviewadapter(private var dataSet: List<String>,private val mybuttomclidck:()->Unit) :
     RecyclerView.Adapter<MyViewHolder>() {
 
 
@@ -20,7 +20,7 @@ class myrecycleviewadapter(private var dataSet: List<String>) :
     }
 
     override fun onBindViewHolder(viewHolder: MyViewHolder, position: Int) {
-        viewHolder.bind(dataSet[position])
+        viewHolder.bind(dataSet[position],mybuttomclidck)
     }
 
     override fun getItemCount() = dataSet.size
